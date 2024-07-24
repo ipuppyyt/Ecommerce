@@ -1,5 +1,6 @@
 import  {useState} from 'react'
 import Logo from "../icons/logo.png"
+import Bag from "../icons/shopping-bag.png"
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -47,10 +48,13 @@ const Navbar = () => {
                 Fourth Link
               </a>
             </div>
-            <div>
-              <button className="inline-flex items-center bg-amber-500 border-0 py-2 px-4 text-white">
+            <div className='flex flex-row'>
+            <button className="inline-flex items-center border-0 py-2 px-4 text-white">
+                <img src={Bag} className="w-100 h-10 mr-2" alt="Logo" />
+                </button>
+                <button className="inline-flex items-center bg-amber-500 border-0 py-2 px-4 text-white">
                 Click Me
-              </button>
+                </button>
             </div>
           </div>
         </nav>
