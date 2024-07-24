@@ -1,7 +1,5 @@
-import { useState } from 'react'
-import './App.css'
 
-function App() {
+function HomePage() {
   
 
   return (
@@ -11,4 +9,4 @@ function App() {
   )
 }
 
-export default App
+export default HomePage
