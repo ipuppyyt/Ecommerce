@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Cart from '../icons/shopping-cart.png';
-
+import { useShoppingCart } from '../context/ShoppingCartContext';
+import CartButton from './CartButton';
 const Card = (props: any) => {
   const navigate = useNavigate();
 
@@ -12,6 +13,8 @@ const Card = (props: any) => {
     event.stopPropagation(); // Prevents the event from bubbling up to the parent div
     navigate(`/home/products/${props.id}/checkout`);
   };
+
+  const { getItemQuantity,increaseItemQuantity, decreaseItemQuantity} = useShoppingCart()
 
   return (
     <div
@@ -30,9 +33,8 @@ const Card = (props: any) => {
         >
           Buy Now
         </button>
-        <button className="px-3 py-1 rounded-lg bg-gray-300 hover:bg-gray-500 " >
-          <img src={Cart} alt="Cart" className="w-6" />
-        </button>
+        
+        <CartButton/>
       </div>
     </div>
   );
