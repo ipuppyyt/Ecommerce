@@ -24,6 +24,7 @@ export default function ShoppingCart( {isOpen} : ShoppinCartProps) {
 
   const handleCheckout= () =>{
     navigate("/home/products/checkout")
+    closeCart()
   }
   
   return (
@@ -47,7 +48,7 @@ export default function ShoppingCart( {isOpen} : ShoppinCartProps) {
                     <div className="ml-3 flex h-7 items-center">
                       <button
                         type="button"
-                        onClick={() => closeCart}
+                        onClick={closeCart}
                         className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
                       >
                         <span className="absolute -inset-0.5" />

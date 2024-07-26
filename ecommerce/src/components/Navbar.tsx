@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="flex items-center flex-shrink-0 text-white mr-6 lg:mr-72">
         <Logo />
       </div>
-      <div className="block lg:hidden">
+      <div className="block md:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center px-3 py-2 rounded text-black-500 hover:text-black-400"
@@ -44,28 +44,28 @@ const Navbar = () => {
         </button>
       </div>
       <div
-        className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"}`}
+        className={`w-full block flex-grow md:flex md:items-center md:w-auto ${isOpen ? "block" : "hidden"}`}
       >
-        <div className="text-sm lg:flex-grow">
-          <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4">
-            First Link
+        <div className="text-sm md:flex-grow">
+          <a href="#" className="block mt-4 md:inline-block md:mt-0 text-white-200 mr-4">
+            Home
           </a>
-          <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4">
-            Second Link
+          <a href="#" className="block mt-4 md:inline-block md:mt-0 text-white-200 mr-4">
+            Living
           </a>
-          <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4">
-            Third Link
+          <a href="#" className="block mt-4 md:inline-block md:mt-0 text-white-200 mr-4">
+            Dining
           </a>
-          <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4">
-            Fourth Link
+          <a href="#" className="block mt-4 md:inline-block md:mt-0 text-white-200 mr-4">
+            Bedroom
           </a>
         </div>
-        <div className='flex flex-row'>
+        <div className='flex flex-row gap-2'>
           <div onClick={handleCart}>
           <CartButton src={Bag} quantity = {cartQuantity}/>
           </div>
-          <button className="inline-flex items-center bg-amber-500 border-0 py-2 px-4 text-white">
-            Click Me
+          <button className="rounded-lg inline-flex items-center bg-amber-500 border-0 py-2 px-4 text-white">
+            Login
           </button>
         </div>
       </div>
