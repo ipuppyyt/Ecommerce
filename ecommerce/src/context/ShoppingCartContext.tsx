@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import ShoppinCart from "../components/ShoppinCart";
-import Card from "../components/Card";
+import CartItem from "../components/CartItem";
 
 type ShoppingCartProviderProps = {
   children: ReactNode
@@ -48,7 +48,10 @@ export function ShoppingCartProvider({ children }:
     const openCart = () => setIsOpen(true)
     const closeCart = () => setIsOpen(false)
 
+    
+
     function getItemQuantity(id: number) {
+    
       return cartItems.find(item => item.id === id)?.quantity || 0
     }
 
@@ -107,6 +110,6 @@ export function ShoppingCartProvider({ children }:
     }}>
     {children}
     <ShoppinCart isOpen={isOpen}/>
-    {/* <Card className="hidden"/> */}
+    
   </ShoppingCartContext.Provider>
 }

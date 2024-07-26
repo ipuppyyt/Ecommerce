@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import CartButton from './CartButton';
-import Button from './Button';
+import ButtonComponent from './ButtonComponent';
 import Cart from '../icons/shopping-cart.png';
 
 
@@ -41,14 +41,14 @@ const Card = (props: any) => {
       </div>
       <div className="flex items-center justify-center mb-3 gap-2">
         <div onClick={handleBuyNow}>
-        <Button value="Buy Now"/>
+        <ButtonComponent value="Buy Now" bg="bg-gray-300" />
         </div>
         <div onClick={handleIncreaseCart}>
         <CartButton quantity={quantity} src ={Cart}/>
         </div>
         {quantity > 0 &&
           <div onClick={handleDecreaseCart}>
-          <Button value="-"/>
+          <ButtonComponent value="-" bg="bg-gray-300" />
           </div>
         }
       

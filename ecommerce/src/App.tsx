@@ -18,6 +18,7 @@ const App = () => {
         <Route path="/home/products" element={<ProductsPage />} />
         <Route path="/home/products/:productId" element={<ProductDetails />} />
         <Route path="/home/products/:id/checkout" element={<CheckoutPage />} />
+        <Route path="/home/products/checkout" element={<CheckoutPage/>}/>
         
       </Routes>
     </ShoppingCartProvider>

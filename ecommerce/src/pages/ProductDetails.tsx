@@ -1,21 +1,43 @@
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import data from "../data/data"
+import ButtonComponent from '../components/ButtonComponent';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 const ProductDetails = () => {
+
+  const [cartStatus, setCartStatus] = useState("Add to Cart")
+
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const { productId } = useParams<{ productId: string }>();
   const id = Number(productId);
 
+  const { increaseItemQuantity, openCart} = useShoppingCart()
   const product = data.find((product) => product.id === id);
 
   if (!product) {
     return <div>Product not found</div>;
   }
 
+
   const handleTab = (index: number) => {
     setIndex(index);
+  };
+  // const quantity = getItemQuantity(product.id)
+
+  const handleAddtoCart = () =>{
+    setCartStatus("Go to Cart")
+      increaseItemQuantity(product.id)
+  }
+  const handleGoToCart = () =>{
+    openCart();
+  }
+  const handleBuyNow = () => {
+    increaseItemQuantity(product.id)
+   
+    navigate(`/home/products/${product.id}/checkout`);
   };
 
   return (
@@ -51,9 +73,14 @@ const ProductDetails = () => {
                 />
               ))}
             </div>
-            <div className='py-2 px-2 space-x-1'>
-              <button className="bg-black text-white outline-none border-none cursor-pointer py-2.5 px-3 mt-3.75">Add to cart</button>
-              <button className="bg-black text-white outline-none border-none cursor-pointer py-2.5 px-3 mt-3.75">Buy Me</button>
+            <div className='py-2 px-2 space-x-1 flex'>
+              <div onClick= { cartStatus === "Go to Cart"? handleGoToCart:handleAddtoCart}>
+              <ButtonComponent value={cartStatus} bg="bg-black" cl="text-white"/>
+              </div>
+              <div onClick={handleBuyNow}>
+              <ButtonComponent value="Buy Now" bg="bg-black" cl="text-white"/>
+              </div>
+              
             </div>
           </div>
         </div>
